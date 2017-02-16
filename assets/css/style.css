@@ -1,0 +1,29 @@
+h1 {
+	font-family: monospace;
+	font-size: 2.5em;
+}
+
+section {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	clear: both;
+}
+
+.character-descriptor {
+	margin: 0 auto;
+	text-align: center;
+}
+
+.character {
+	margin-left: 5px;
+	margin-right: 5px;
+	position: relative;
+	height: 150px;
+	width: 200px;
+	float: left;
+	background: red;
+}
+
+#choose-character-text {
+	clear: both;
+}

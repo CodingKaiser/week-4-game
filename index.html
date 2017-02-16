@@ -7,40 +7,44 @@
 	<title>Hangman Game</title>
 	<meta name="viewport" content="width=device-width">
 	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="icon" href="assets/images/slug.jpg">
 </head>
 
 <body>
+	<header id="title">
+		<h1>Star Wars RPG</h1>
+	</header>
 	<section id="choose-character">
 		<div id="obi-wan" class="character">
-			<p class="name">Obi-Wan Kenobi</p>
+			<p class="character-descriptor">Obi-Wan Kenobi</p>
 			<img class="character-image" src="#">
-			<p class="attack-points">170</p>
+			<p class="character-descriptor">170</p>
 		</div>
 		<div id="luke-skywalker" class="character">
-			<p class="name">Luke Skywalker</p>
+			<p class="character-descriptor">Luke Skywalker</p>
 			<img class="character-image" src="#">
-			<p class="attack-points">170</p>
+			<p class="character-descriptor">170</p>
 		</div>
 		<div id="darth-sidious" class="character">
-			<p class="name">Darth Sidious</p>
+			<p class="character-descriptor">Darth Sidious</p>
 			<img class="character-image" src="#">
-			<p class="attack-points">170</p>
+			<p class="character-descriptor">170</p>
 		</div>
 		<div id="dark-maul" class="character">
-			<p class="name">Darth Maul</p>
+			<p class="character-descriptor">Darth Maul</p>
 			<img class="character-image" src="#">
-			<p class="attack-points">170</p>
+			<p class="character-descriptor">170</p>
 		</div>
 		<h1 id="choose-character-text">Your Character</h1>
 	</section>
 	<section id="enemies-selection">
+		<h1 id="enemies-selection-text">Enemies Available To Attack</h1>
 	</section>
 	<section id="fight">
+		<h1 id="fight-header">Fight Section</h1>
+		<button id="attack-btn">Attack</button>
+		<h1 id="defender-text">Defender</h1>
 	</section>
 	<script type="text/javascript" src="assets/javascript/game.js"></script>
 </body>
