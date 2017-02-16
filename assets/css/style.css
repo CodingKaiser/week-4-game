@@ -24,6 +24,17 @@ section {
 	background: red;
 }
 
+.img-container {
+	width: 150px;
+	margin: 0 auto;
+}
+
+.character-image {
+	margin: 0 auto;
+	width: 150px;
+	height: 100px;
+}
+
 #choose-character-text {
 	clear: both;
 }
