@@ -2,7 +2,7 @@ $(document).ready(function() {
 	var characters = [['Obi-Wan Kenobi', 'obi-wan', 'obiWan.jpg', 120, 8, 40],
 					  ['Luke Skywalker', 'skywalker', 'lukeSkywalker.jpg', 100, 40, 5],
 					  ['Darth Sidious', 'sidious', 'darthSidious.jpg', 150, 50, 20],
-					  ['Darth Maul', 'maul', 'darthMaul.jpg', 180, 20, 25]];
+					  ['Darth Maul', 'maul', 'darthMaul.jpg', 180, 5, 25]];
 
 	var game = {
 		characterChosen: false,
@@ -54,12 +54,10 @@ $(document).ready(function() {
 			$("#attack-btn").on("click", function() {
 				var attacker = $("#choose-character").children(".character");
 				var defender = $("#fight").children(".character");
-				var attackerHP = getCharacterHP(attacker);
-				var attackerAtk = getCharacterAttack(attacker);
-				var defenderHP = getCharacterHP(defender);
-				var defenderCounter = getCharacterCounter(defender);
-				takeCharacterDamage(attacker, defenderCounter);
-				takeCharacterDamage(defender, attackerAtk);
+				takeCharacterDamage(defender, getCharacterAttack(attacker));
+				if (getCharacterHP(defender) > 0) {
+					takeCharacterDamage(attacker, getCharacterCounter(defender));
+				}
 				increaseCharacterAttack(attacker);
 				me.checkBattleStatusAndUpdate();
 			});
@@ -78,9 +76,9 @@ $(document).ready(function() {
 			var fightLogAttacker = $("#fight-log-attacker");
 			var fightLogResponse = $("#fight-log-response");
 			updateCharacterHpDisplay();
-			if (attackerHP <= 0) {
+			if (getCharacterHP(attacker) <= 0) {
 				this.stageGameForRestart();
-			} else if (defenderHP <= 0) {
+			} else if (getCharacterHP(defender) <= 0) {
 				this.stageGameForRematch();
 			} else {
 				fightLogAttacker.text("You attacked " + defenderName + " for " + (attackerAtk - attackerAtkIncrement) + " damage.");
