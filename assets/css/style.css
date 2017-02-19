@@ -3,6 +3,10 @@ h1 {
 	font-size: 2.5em;
 }
 
+p {
+	font-family: monospace;
+}
+
 section {
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -10,17 +14,19 @@ section {
 }
 
 .character-descriptor {
-	margin: 0 auto;
 	text-align: center;
+	margin-bottom: 5px;
+	margin-top: 5px;
+	font-family: monospace;
 }
 
 .character {
 	margin: 5px 5px 5px 5px;
+	border: 2px solid green;
 	position: relative;
 	height: 150px;
 	width: 200px;
 	float: left;
-	background: red;
 }
 
 .img-container {
@@ -34,6 +40,24 @@ section {
 	height: 100px;
 }
 
+.character-enemy {
+	background: red;
+	border: 2px solid black;
+}
+
+.character-defender {
+	background: black;
+	border: 2px solid green;
+}
+
+.character-descriptor-defender {
+	color: white;
+}
+
 #choose-character-text {
+	clear: both;
+}
+
+.fight-log {
 	clear: both;
 }
