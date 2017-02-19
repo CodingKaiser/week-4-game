@@ -64,27 +64,15 @@ $(document).ready(function() {
 		},
 
 		checkBattleStatusAndUpdate: function() {
-			var fightSection = $("#fight");
 			var attacker = $("#choose-character").children(".character");
 			var defender = $("#fight").children(".character");
-			var attackerHP = getCharacterHP(attacker);
-			var attackerAtk = getCharacterAttack(attacker);
-			var attackerAtkIncrement = getCharacterAttackIncrement(attacker);
-			var defenderHP = getCharacterHP(defender);
-			var defenderName = getCharacterName(defender);
-			var defenderCounter = getCharacterCounter(defender);
-			var fightLogAttacker = $("#fight-log-attacker");
-			var fightLogResponse = $("#fight-log-response");
 			updateCharacterHpDisplay();
 			if (getCharacterHP(attacker) <= 0) {
 				this.stageGameForRestart();
 			} else if (getCharacterHP(defender) <= 0) {
 				this.stageGameForRematch();
 			} else {
-				fightLogAttacker.text("You attacked " + defenderName + " for " + (attackerAtk - attackerAtkIncrement) + " damage.");
-				fightLogResponse.text(defenderName + " attacked you back for " + defenderCounter + " damage.");
-				fightSection.append(fightLogAttacker);
-				fightSection.append(fightLogResponse);
+				this.displayResultOfRound();
 			}
 		},
 
@@ -116,6 +104,21 @@ $(document).ready(function() {
 				});
 			});
 		},
+
+		displayResultOfRound: function() {
+			var fightSection = $("#fight");
+			var attacker = $("#choose-character").children(".character");
+			var defender = $("#fight").children(".character");
+			var fightLogAttacker = $("#fight-log-attacker");
+			var fightLogResponse = $("#fight-log-response");
+			fightLogAttacker.text("You attacked " + getCharacterName(defender) + 
+									" for " + (getCharacterAttack(attacker) - 
+									getCharacterAttackIncrement(attacker)) + " damage.");
+			fightLogResponse.text(getCharacterName(defender) + " attacked you back for " + 
+									getCharacterCounter(defender) + " damage.");
+			fightSection.append(fightLogAttacker);
+			fightSection.append(fightLogResponse);
+		}
 	};
 
 	var clearCharacters = function() {
