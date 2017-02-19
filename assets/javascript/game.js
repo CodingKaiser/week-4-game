@@ -1,8 +1,8 @@
 $(document).ready(function() {
-	var characters = [['Obi-Wan Kenobi', 'obi-wan', 'obiWan.jpg', 120, 8, 40],
-					  ['Luke Skywalker', 'skywalker', 'lukeSkywalker.jpg', 100, 40, 5],
-					  ['Darth Sidious', 'sidious', 'darthSidious.jpg', 150, 50, 20],
-					  ['Darth Maul', 'maul', 'darthMaul.jpg', 180, 5, 25]];
+	var characters = [['Obi-Wan Kenobi', 'obi-wan', 'obiWan.jpg', 120, 8, 8],
+					  ['Luke Skywalker', 'skywalker', 'lukeSkywalker.jpg', 100, 10, 5],
+					  ['Darth Sidious', 'sidious', 'darthSidious.jpg', 150, 4, 20],
+					  ['Darth Maul', 'maul', 'darthMaul.jpg', 180, 3, 25]];
 
 	var game = {
 		characterChosen: false,
