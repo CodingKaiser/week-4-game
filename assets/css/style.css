@@ -1,15 +1,43 @@
+html {
+	height: 100%;
+	background-image: url('../images/starWarsBackground.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+body {
+	height: 100%;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
 h1 {
-	font-family: monospace;
+	font-family: 'Space Mono', monospace;
+	text-shadow: 0 0 7px #ffffff;
 	font-size: 2.5em;
 }
 
 p {
-	font-family: monospace;
+	font-family: 'Space Mono', monospace;
 }
 
 section {
-	margin-top: 10px;
-	margin-bottom: 10px;
+	padding-bottom: 10px;
+	display: block;
+	clear: both;
+	overflow: auto;
+}
+
+button {
+	display: block;
+	clear: both;
+	font-size: 1.5em;
+	font-family: 'Space Mono', monospace;
+}
+
+hr {
+	border: 2px solid white;
+	display: block;
 	clear: both;
 }
 
@@ -17,16 +45,21 @@ section {
 	text-align: center;
 	margin-bottom: 5px;
 	margin-top: 5px;
-	font-family: monospace;
+	font-family: 'Space Mono', monospace;
+	font-weight: bold;
 }
 
 .character {
-	margin: 5px 5px 5px 5px;
+	margin-top: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
 	border: 2px solid green;
+	background: white;
 	position: relative;
 	height: 150px;
 	width: 200px;
 	float: left;
+	cursor: pointer;
 }
 
 .img-container {
@@ -41,7 +74,7 @@ section {
 }
 
 .character-enemy {
-	background: red;
+	background: #ea4335;
 	border: 2px solid black;
 }
 
@@ -54,10 +87,31 @@ section {
 	color: white;
 }
 
+.fight-log {
+	clear: both;
+	background-color: white;
+	float: left;
+}
+
 #choose-character-text {
 	clear: both;
 }
 
-.fight-log {
+#title-text {
+	float: right;
+	position: relative;
+	right: 20px;
+	background-color: white;
+	padding: 5px;
+	font-size: 3em;
+
+}
+
+#fight-header, #attack-btn, #defender-text {
+	margin-bottom: 5px;
+}
+
+#restart-button-location {
 	clear: both;
+	margin-top: 10px;
 }

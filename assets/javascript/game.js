@@ -21,6 +21,7 @@ $(document).ready(function() {
 			chooseCharacter.children(".character").each(function() {
 				if (characterID === $(this).attr("id")) {
 					$(this).off("click");
+					$(this).css("cursor", "default");
 					chooseCharacter.append($("#choose-character-text"));
 					chooseCharacter.append($(this));
 				} else {
@@ -43,6 +44,7 @@ $(document).ready(function() {
 					$("#fight").append($(this));
 					$(this).addClass("character-defender character-descriptor-defender");
 				}
+				$(this).css("cursor", "default");
 				$(this).off("click");
 			});
 			this.startBattle();
@@ -70,7 +72,11 @@ $(document).ready(function() {
 			if (getCharacterHP(attacker) <= 0) {
 				this.stageGameForRestart();
 			} else if (getCharacterHP(defender) <= 0) {
-				this.stageGameForRematch();
+				if (!$("#enemies-selection").children(".character").length) {
+					this.stageGameForRestart();
+				} else {
+					this.stageGameForRematch();
+				}
 			} else {
 				this.displayResultOfRound();
 			}
@@ -79,9 +85,16 @@ $(document).ready(function() {
 		stageGameForRestart: function() {
 			var me = this;
 			$("#fight-log-attacker").empty();
-			$("#fight-log-response").text("You have been defeated! Start Over?");
+			var attackerHP = getCharacterHP($("#choose-character").children(".character"));
+			$("#fight").children(".character").remove();
+			if (attackerHP > 0) {
+				$("#fight-log-response").text("You have won! Start Over?");
+			} else {
+				$("#fight-log-response").text("You have been defeated! Start Over?");
+			}
 			$("#attack-btn").off("click");
 			var startOverBtn = $("<button></button>");
+			startOverBtn.css("clear", "both");
 			startOverBtn.attr("id", "start-over-btn");
 			startOverBtn.text("Start Over");
 			startOverBtn.on("click", function() {
@@ -99,6 +112,7 @@ $(document).ready(function() {
 			$("#attack-btn").off("click");
 			defender.remove();
 			$("#enemies-selection").children(".character").each(function() {
+				$(this).css("cursor", "pointer");
 				$(this).on("click", function() {
 					me.defenderSelected($(this).attr("id"));
 				});
