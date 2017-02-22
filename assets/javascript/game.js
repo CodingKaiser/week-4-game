@@ -86,9 +86,9 @@ $(document).ready(function() {
 			var me = this;
 			$("#fight-log-attacker").empty();
 			var attackerHP = getCharacterHP($("#choose-character").children(".character"));
-			$("#fight").children(".character").remove();
 			if (attackerHP > 0) {
 				$("#fight-log-response").text("You have won! Start Over?");
+				$("#fight").children(".character").remove();
 			} else {
 				$("#fight-log-response").text("You have been defeated! Start Over?");
 			}
@@ -204,7 +204,11 @@ $(document).ready(function() {
 	var takeCharacterDamage = function(jqueryRef, damage) {
 		var characterHP = getCharacterHP(jqueryRef);
 		var newHP = characterHP - parseInt(damage);
-		jqueryRef.attr("hp", newHP);
+		if (newHP < 0) {
+			jqueryRef.attr("hp", 0);
+		} else {
+			jqueryRef.attr("hp", newHP);
+		}
 	};
 
 	var increaseCharacterAttack = function(jqueryRef) {
