@@ -143,32 +143,44 @@ $(document).ready(function() {
 
 	var setUpCharacters = function() {
 		var chooseArea = $("#choose-character");
-		for (var i = 0; i < characters.length; i++) {
-			var currCharacter = characters[i];
-			var newCharacter = $("<div></div>");
-			chooseArea.append(newCharacter);
-			newCharacter.attr("id", currCharacter[1]);
-			newCharacter.attr("verbose-name", currCharacter[0]);
-			newCharacter.addClass("character");
+		function setBaseAttributes(characterAttributes, domCharacter) {
+			chooseArea.append(domCharacter);
+			domCharacter.attr("id", characterAttributes[1]);
+			domCharacter.attr("verbose-name", characterAttributes[0]);
+			domCharacter.addClass("character");
+			domCharacter.attr("hp", characterAttributes[3]);
+			domCharacter.attr("atk", characterAttributes[4]);
+			domCharacter.attr("atkIncrement", characterAttributes[4]);
+			newCharacter.attr("counter-atk", characterAttributes[5]);
+		}
+		function writeCharacterName(characterAttributes, domCharacter) {
 			var charName = $("<p></p>");
 			charName.addClass("character-descriptor");
-			charName.text(currCharacter[0]);
-			newCharacter.append(charName);
+			charName.text(characterAttributes[0]);
+			domCharacter.append(charName);
+		}
+		function setCharacterImage(characterAttributes, domCharacter) {
 			var charImageDiv = $("<div></div");
 			charImageDiv.addClass("img-container");
-			newCharacter.append(charImageDiv);
+			domCharacter.append(charImageDiv);
 			var charImage = $("<img>");
 			charImage.addClass("character-image");
-			charImage.attr("src", "assets/images/" + currCharacter[2]);
+			charImage.attr("src", "assets/images/" + characterAttributes[2]);
 			charImageDiv.append(charImage);
-			newCharacter.attr("hp", currCharacter[3]);
-			newCharacter.attr("atk", currCharacter[4]);
-			newCharacter.attr("atkIncrement", currCharacter[4]);
-			newCharacter.attr("counter-atk", currCharacter[5]);
+		}
+		function displayHealthCounter(characterAttributes, domCharacter) {
 			var healthCounter = $("<p></p>");
 			healthCounter.addClass("character-descriptor health-counter");
-			healthCounter.text(currCharacter[3] + "");
-			newCharacter.append(healthCounter);
+			healthCounter.text(characterAttributes[3] + "");
+			domCharacter.append(healthCounter);
+		}
+		for (var i = 0; i < characters.length; i++) {
+			var characterAttributes = characters[i];
+			var newCharacter = $("<div></div>");
+			setBaseAttributes(characterAttributes, newCharacter);
+			writeCharacterName(characterAttributes, newCharacter);
+			setCharacterImage(characterAttributes, newCharacter);
+			displayHealthCounter(characterAttributes, newCharacter);
 		};
 		chooseArea.append($("#choose-character-text"));
 	};
