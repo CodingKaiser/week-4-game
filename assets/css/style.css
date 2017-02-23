@@ -1,5 +1,5 @@
 html {
-	height: 100%;
+	min-height: 100%;
 	background-image: url('../images/starWarsBackground.jpg');
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -115,3 +115,9 @@ hr {
 	clear: both;
 	margin-top: 10px;
 }
+
+#wrapper {
+	position: relative;
+	overflow: auto;
+}
+
