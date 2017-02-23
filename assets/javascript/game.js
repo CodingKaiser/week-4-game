@@ -9,24 +9,25 @@ $(document).ready(function() {
 		currentlyFighting: false,
 
 		start: function() {
-			clearCharacters();
+			clearTheStage();
 			setUpCharacters();
 			setCharacterSelectionListeners();
 		},
 
 		characterSelected: function(characterID) {
 			this.characterChosen = true;
-			var chooseCharacter = $("#choose-character");
+			var chooseCharacterArea = $("#choose-character");
 			var me = this;
-			chooseCharacter.children(".character").each(function() {
+			chooseCharacterArea.children(".character").each(function() {
 				if (characterID === $(this).attr("id")) {
 					$(this).off("click");
 					$(this).css("cursor", "default");
-					chooseCharacter.append($("#choose-character-text"));
-					chooseCharacter.append($(this));
+					// Place 'Your Character' above chosen character
+					chooseCharacterArea.append($("#choose-character-text"));
+					chooseCharacterArea.append($(this));
 				} else {
-					var enemyArea = $("#enemies-selection");
-					enemyArea.append($(this));
+					var enemySelectionArea = $("#enemies-selection");
+					enemySelectionArea.append($(this));
 					$(this).addClass("character-enemy");
 					$(this).off("click");
 					$(this).on("click", function() {
@@ -135,7 +136,7 @@ $(document).ready(function() {
 		}
 	};
 
-	var clearCharacters = function() {
+	var clearTheStage = function() {
 		$(".character").remove();
 		$(".fight-log").empty();
 		$("#start-over-btn").remove();
