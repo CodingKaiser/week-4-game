@@ -59,6 +59,7 @@ $(document).ready(function() {
 				var defender = $("#fight").children(".character");
 				takeCharacterDamage(defender, getCharacterAttack(attacker));
 				if (getCharacterHP(defender) > 0) {
+					// Enemies that are dead can't counterattack
 					takeCharacterDamage(attacker, getCharacterCounter(defender));
 				}
 				increaseCharacterAttack(attacker);
@@ -73,6 +74,7 @@ $(document).ready(function() {
 			if (getCharacterHP(attacker) <= 0) {
 				this.stageGameForRestart();
 			} else if (getCharacterHP(defender) <= 0) {
+				// Restart match if all enemies dead, continue otherwise
 				if (!$("#enemies-selection").children(".character").length) {
 					this.stageGameForRestart();
 				} else {
