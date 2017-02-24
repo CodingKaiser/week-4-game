@@ -117,7 +117,22 @@ hr {
 }
 
 #wrapper {
-	position: relative;
-	overflow: auto;
+	width: 875px;
 }
 
+@media only screen and (max-width: 874px) {
+	#wrapper {
+		width: auto;
+	}
+
+	#title-text {
+		width: 100%;
+		right: 0px;
+		text-align: center;
+	}
+
+	body {
+		margin-left: 0px;
+		margin-right: 0px;
+	}
+}
